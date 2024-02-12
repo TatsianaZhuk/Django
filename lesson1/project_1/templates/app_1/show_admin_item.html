@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1 align="center"><b>Админка.</b>Вся наша мебель</h1>
+<h1 align="center"><b>Админка.</b> Вся наша мебель</h1>
 
 {% if mebels %}
 <div class="row justify-content-center">
@@ -34,8 +34,10 @@
                             </textarea>
                         </div>
                     </td>
-                    <td><button type="button" class="btn btn-success">Сохранить</button></td>
-                    <td><button type="button" class="btn btn-danger">Удалить</button></td>
+                    <td>
+                        <button type="button" class="btn btn-success">Сохранить</button>
+                        <button type="button" class="btn btn-danger">Удалить</button>
+                    </td>
                 </tr>
             {% endfor %}
 

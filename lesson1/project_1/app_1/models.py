@@ -5,7 +5,7 @@ class Mebel(models.Model):
     link = models.TextField('Ссылка')
     price = models.DecimalField(max_digits=12, decimal_places=2)
     description = models.TextField(
-        verbose_name='Описание на куфаре'
+        verbose_name='Описание с куфара'
     )
     parse_datetime = models.DateTimeField(
         auto_now_add=True,
@@ -22,4 +22,4 @@ class Mebel(models.Model):
     class Meta:
         verbose_name = 'Мебель'
         verbose_name_plural = 'Мебель'
-        ordering = ['parse_datetime', 'price']
+        ordering = ['parse_datetime', '-price']

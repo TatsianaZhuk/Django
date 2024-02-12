@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from . models import Mebel
-from .forms import UpdateItemForm
 
 
 def show_all(request):
@@ -9,15 +7,11 @@ def show_all(request):
     return render(
         request,
         'app_1/show_all.html',
-        {
-            'form': form,
-            'mebels': mebels
-        }
+        {'mebels': mebels}
     )
 
 def show_all_admin(request):
-    form = UpdateItemForm()
-    mebels = Mebel.objects.all().order_by("-parse_datetime")
+    mebels = Mebel.objects.all().order_by("-price")
     return render(
         request,
         'app_1/show_admin_item.html',
@@ -32,8 +26,10 @@ def show_item(request, item_id):
         {'item': item}
     )
 
+
 def main(request):
     return redirect('main')
 
-def page_not_found(request, exception):
+
+def page_not_found(request, *args, **argv):
     return redirect('main')

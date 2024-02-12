@@ -22,4 +22,4 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 ]
 
-handler404 = 'app_1.views.page_not_found'
+handler500 = 'app_1.views.page_not_found'

@@ -1,4 +1,3 @@
-
 import requests
 from bs4 import BeautifulSoup
 import pandas
@@ -8,9 +7,9 @@ import data_client
 class Parser:
     links_to_parse = [
         'https://www.kufar.by/l/mebel',
-        'https://www.kufar.by/l/r~brest/mebel?cursor=eyJ0IjoiYWJzIiwiZiI6dHJ1ZSwicCI6MiwicGl0IjoiMjg0NDIyOTAifQ%3D%3D',
-        'https://www.kufar.by/l/r~brest/mebel?cursor=eyJ0IjoiYWJzIiwiZiI6dHJ1ZSwicCI6MywicGl0IjoiMjg0NDIzMTYifQ%3D%3D',
-        'https://www.kufar.by/l/r~brest/mebel?cursor=eyJ0IjoiYWJzIiwiZiI6dHJ1ZSwicCI6NCwicGl0IjoiMjg0NDIzMTYifQ%3D%3D'
+        'https://www.kufar.by/l/mebel?cursor=eyJ0IjoiYWJzIiwiZiI6dHJ1ZSwicCI6Mn0%3D',
+        'https://www.kufar.by/l/mebel?cursor=eyJ0IjoiYWJzIiwiZiI6dHJ1ZSwicCI6M30%3D',
+        'https://www.kufar.by/l/mebel?cursor=eyJ0IjoiYWJzIiwiZiI6dHJ1ZSwicCI6NH0%3D'
     ]
     data_client_imp = data_client.PostgresClient()
 
@@ -21,7 +20,7 @@ class Parser:
 
         mebel_items = []
         to_parse = BeautifulSoup(mebel_data, 'html.parser')
-        for elem in to_parse.find_all('a', class_='styles_wrapper__5FoK7'):
+        for elem in to_parse.find_all('a', class_='styles_wrapper__yaLfq'):
             try:
                 price, decription = elem.text.split('р.')
                 mebel_items.append((
